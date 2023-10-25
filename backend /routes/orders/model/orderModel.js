@@ -3,10 +3,18 @@ const { v4: uuid } = require('uuid');
 
 const orderSchema = new mongoose.Schema(
   {
-    user: {
+    owner: {
       type: String,
       required: true,
       ref: 'User',
+    },
+    firstname: {
+      type: String,
+      required: true,
+    },
+    lastname: {
+      type: String,
+      required: true,
     },
     orderItems: [
       {
@@ -21,11 +29,17 @@ const orderSchema = new mongoose.Schema(
         },
       },
     ],
+    billingaddress: {
+      address: { type: String, required: false},
+      city: { type: String, required: false },
+      postalCode: { type: String, required: false},
+      country: { type: String, required: false },
+    },
     shippingAddress: {
-      address: { type: String, required: true },
-      city: { type: String, required: true },
-      postalCode: { type: String, required: true },
-      country: { type: String, required: true },
+      address: { type: String, required: false },
+      city: { type: String, required: false },
+      postalCode: { type: String, required: false },
+      country: { type: String, required: false },
     },
     paymentMethod: {
       type: String,
@@ -39,7 +53,7 @@ const orderSchema = new mongoose.Schema(
     },
     itemsPrice: {
       type: Number,
-      required: true,
+      required: false,
       default: 0.0,
     },
     taxPrice: {

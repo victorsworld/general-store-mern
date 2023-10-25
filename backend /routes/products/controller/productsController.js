@@ -1,6 +1,4 @@
 const Product = require('../model/productModel');
-const User = require('../../users/model/userModel');
-const userController = require('../../users/controller/userController');
 
 module.exports = {
   createProduct: async (req, res) => {
