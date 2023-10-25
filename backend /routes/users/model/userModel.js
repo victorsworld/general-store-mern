@@ -1,7 +1,7 @@
-const mongoose = require('mongose');
+const mongoose = require('mongoose');
 const { v4: uuid } = require('uuid');
 
-const userSchema = new mongoose.userSchema(
+const userSchema = mongoose.Schema(
   {
     _id: {
       type: String,
