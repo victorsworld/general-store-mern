@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {jwtValidate } = require('../../utils/jwtValidate')
-const userController = require('./controller/userController')
+const userController = require('../users/controller/userController')
 const { validateUserData } = require('../../utils/validateUserData')
 const { checkIfEmpty } = require('../../utils/checkIfEmpty')
 
