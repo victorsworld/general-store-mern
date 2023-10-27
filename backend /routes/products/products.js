@@ -5,17 +5,10 @@ const productController = require('../products/controller/productsController')
 const {jwtValidate } = require('../../utils/jwtValidate')
 
 
-//ADMIN
-router.post('/create-item', productController.createProduct )
-
-router.put('/edit-item/:id',productController.editProduct)
-
-router.delete('/delete-item/:id', productController.deleteProduct)
-
 //USER
-router.get('/all-product',productController.allProduct)
+router.get('/all-product',jwtValidate,productController.allProduct)
 
-router.get('/product/:id',productController.oneProduct)
+router.get('/product/:id',jwtValidate,productController.oneProduct)
 
 
 
