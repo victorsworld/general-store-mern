@@ -41,11 +41,14 @@ const validateUser = async (token) => {
 
 const getProducts = async () =>{
   try {
-    
+    const response = await Axios.get(`/product/all-product`)
+    const data = await response.data;
+    return data;
   } catch (error) {
+    return error.response.data;
     
   }
 }
 
 
-export { registerUser, loginUser, validateUser };
+export { registerUser, loginUser, validateUser, getProducts };

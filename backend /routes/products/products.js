@@ -6,9 +6,9 @@ const {jwtValidate } = require('../../utils/jwtValidate')
 
 
 //USER
-router.get('/all-product',jwtValidate ,productController.allProduct)
+router.get('/all-product',productController.allProduct)
 
-router.get('/product/:id',jwtValidate ,productController.oneProduct)
+router.get('/product/:id',productController.oneProduct)
 
 
 
