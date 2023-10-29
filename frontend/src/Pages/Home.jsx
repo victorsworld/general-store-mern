@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import { getProducts } from '../API/api';
+import { addToCart, getProducts } from '../Api/api'; 
 
 const Home = () => {
   const navigate = useNavigate();
+  const [cart, setCart] = useState([]); 
   const [products, setProducts] = useState([]);
+  const isVerified = true; 
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -13,7 +15,7 @@ const Home = () => {
         if (response.success) {
           setProducts(response.data);
         }
-        console.log(response.data)
+        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -21,6 +23,22 @@ const Home = () => {
 
     fetchProducts();
   }, []);
+
+  const handleAddToCart = async (item) => {
+    if (isVerified) {
+      if (item) {
+        try {
+          const response = await addToCart(item);
+          setCart([...cart, response]);
+          console.log('Item added to cart:', response);
+        } catch (error) {
+          console.error('Error adding to cart:', error.message);
+        }
+      }
+    } else {
+      navigate('/login');
+    }
+  };
 
   return (
     <div>
@@ -32,6 +50,7 @@ const Home = () => {
           <p className="text-gray-600">{product.description}</p>
           <p className="text-indigo-600 font-semibold mt-2">Price: ${product.price}</p>
           <img src={product.img} alt="Product" className="mt-4" />
+          <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
         </div>
       ))}
     </div>

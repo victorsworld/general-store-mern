@@ -7,7 +7,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // Hook for programmatic navigation
+  
   const navigate = useNavigate();
 
   // Function to handle form submission

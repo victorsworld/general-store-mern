@@ -1,5 +1,6 @@
 import Axios from '../lib/Axios';
 import { getUserToken } from '../Auth/authLocalStorage';
+import cart from '../Pages/cart';
 
 const registerUser = async (userData) => {
   try {
@@ -39,16 +40,28 @@ const validateUser = async (token) => {
   }
 };
 
-const getProducts = async () =>{
+const getProducts = async () => {
   try {
-    const response = await Axios.get(`/product/all-product`)
+    const response = await Axios.get(`/product/all-product`);
     const data = await response.data;
     return data;
   } catch (error) {
     return error.response.data;
-    
   }
-}
+};
 
+const addToCart = async (cartData) => {
+  try {
+    const token = getUserToken();
+    const response = await Axios.post('/order/create-order', cartData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
 
-export { registerUser, loginUser, validateUser, getProducts };
+export { registerUser, loginUser, validateUser, getProducts, addToCart };
