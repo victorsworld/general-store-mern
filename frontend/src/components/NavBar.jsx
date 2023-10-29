@@ -8,6 +8,7 @@ const NavBar = () => {
     <div>
       <div className="">
         <Link to="login">Login</Link> <Link to="register">Register</Link>{' '}
+        <Link to="home">Home</Link>{' '}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { registerUser } from '../API/api';
+import { registerUser } from '../Api/api';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
@@ -13,13 +13,13 @@ const Register = () => {
   // Function to handle form submission
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-   
+
     const data = {
       email,
       password,
     };
 
-    console.log(data)
+    console.log(data);
     // Call the registerUser function to register the user
     const registerResult = await registerUser(data);
     console.log('register', registerResult);

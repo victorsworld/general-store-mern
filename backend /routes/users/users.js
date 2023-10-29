@@ -14,6 +14,6 @@ router.post('/register', checkIfEmpty, validateUserData, userController.register
 
 router.post('/login',checkIfEmpty, validateUserData, userController.login);
 
-router.get('/validate',jwtValidate, validateUserData, userController.validate )
+router.get('/validate',jwtValidate, userController.validate )
 
 module.exports = router;

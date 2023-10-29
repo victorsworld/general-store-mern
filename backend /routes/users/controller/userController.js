@@ -12,7 +12,7 @@ module.exports = {
             const user = {
                 email: email,
                 passwordHash: hash,
-                // role: role
+                role: role
             };
 
             const newUser = await new User(user)

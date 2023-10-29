@@ -1,12 +1,10 @@
-import Axios from "../lib/Axios";
-import {  createAsyncThunk } from '@reduxjs/toolkit'
-// import getUserToken  from '../Auth/authLocalStorage';
+import Axios from '../lib/Axios';
+import { getUserToken } from '../Auth/authLocalStorage';
 
-
-const registerUser = async (userData, thunkAPI) => {
+const registerUser = async (userData) => {
   try {
     const response = await Axios.post(`/users/register`, userData);
-    console.log(response)
+    console.log(response);
     const data = await response.data;
     console.log(data);
     return data;
@@ -18,7 +16,7 @@ const registerUser = async (userData, thunkAPI) => {
 
 const loginUser = async (userData) => {
   try {
-    const response = await Axios.post(`/user/login`, userData);
+    const response = await Axios.post(`/users/login`, userData);
     const data = await response.data;
     return data;
   } catch (error) {
@@ -29,7 +27,7 @@ const loginUser = async (userData) => {
 
 const validateUser = async (token) => {
   try {
-    const response = await Axios.get(`/user/validate`, {
+    const response = await Axios.get(`/users/validate`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -41,4 +39,13 @@ const validateUser = async (token) => {
   }
 };
 
-export {registerUser , loginUser , validateUser}
+const getProducts = async () =>{
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
+
+export { registerUser, loginUser, validateUser };

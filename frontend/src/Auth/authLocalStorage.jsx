@@ -1,4 +1,4 @@
-const tokenHeaderKey = process.env.REACT_APP_HEADER_KEY;
+const tokenHeaderKey = import.meta.env.VITE_REACT_APP_HEADER_KEY;
 
 const setUserToken = (token) => {
 	localStorage.setItem(tokenHeaderKey, JSON.stringify(token));
