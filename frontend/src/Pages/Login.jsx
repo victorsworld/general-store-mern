@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { loginUser } from '../API/api'
+import { loginUser } from '../Api/api'
 import { setUserToken } from '../Auth/authLocalStorage'
 import { useNavigate, useOutletContext } from 'react-router-dom';
 
