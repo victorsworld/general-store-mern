@@ -1,6 +1,6 @@
 import Axios from '../lib/Axios';
 import { getUserToken } from '../Auth/authLocalStorage';
-import cart from '../Pages/cart';
+import cart from '../Pages/Cart';
 
 const registerUser = async (userData) => {
   try {
