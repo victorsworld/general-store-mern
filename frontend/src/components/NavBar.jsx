@@ -26,12 +26,18 @@ const NavBar = ({
 
   return (
     <div>
-      <div className="">
-        <Link to="home">Home</Link> <Link to="login">Login</Link>{' '}
-        <button onClick={handleLogout}>Logout</button>{' '}
-        <Link to="register">Register</Link>{' '}
-      </div>
+    <div className="">
+      <Link to="home">Home</Link> 
+      {isVerified ? (
+        <button onClick={handleLogout}>Logout</button>
+      ) : (
+        <div>
+          <Link to="login">Login</Link>
+          <Link to="register">Register</Link>
+        </div>
+      )}
     </div>
+  </div>
   );
 };
 
